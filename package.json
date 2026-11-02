@@ -1,0 +1,68 @@
+{
+  "name": "rea-agent",
+  "version": "0.4.0",
+  "description": "Routed Embodied Agent (REA): a framework for routing among VLA, code-as-policy, LLM agent and controller policies on robots and benchmarks.",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "rea": "./scripts/rea.mjs"
+  },
+  "exports": {
+    ".": "./src/framework/index.mjs",
+    "./environments/g1": "./src/environments/g1.mjs",
+    "./environments/libero": "./src/environments/libero.mjs",
+    "./environments/libero-programs": "./src/environments/libero-programs.mjs",
+    "./environments/arc-agi3": "./src/environments/arc-agi3.mjs",
+    "./environments/gymnasium": "./src/environments/gymnasium.mjs",
+    "./environments/robot": "./src/environments/robot.mjs",
+    "./environments/python-driver": "./src/environments/python-driver.mjs",
+    "./environments/aloha": "./src/environments/aloha.mjs",
+    "./environments/lerobot": "./src/environments/lerobot.mjs",
+    "./environments/openral": "./src/environments/openral.mjs",
+    "./environments/rpent": "./src/environments/rpent.mjs",
+    "./policies/pi05": "./src/policies/pi05.mjs",
+    "./policies/aloha-code": "./src/policies/aloha-code.mjs",
+    "./policies/aloha-router": "./src/policies/aloha-router.mjs",
+    "./policies/lingbot-vla": "./src/policies/lingbot-vla.mjs",
+    "./policies/success-router": "./src/policies/success-router.mjs",
+    "./policies/robotwin-vla": "./src/policies/robotwin-vla.mjs",
+    "./policies/robotwin-code": "./src/policies/robotwin-code.mjs",
+    "./policies/robotwin-codex": "./src/policies/robotwin-codex.mjs"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "rea": "node ./scripts/rea.mjs",
+    "demo": "node ./scripts/rea.mjs run demo",
+    "start": "node ./server.mjs",
+    "thinker": "node ./thinker.mjs",
+    "demo:offline": "node ./examples/offline.mjs",
+    "demo:service": "node ./examples/service.mjs",
+    "demo:framework": "node ./scripts/rea.mjs run ./examples/eval-fixtures.mjs",
+    "demo:robots": "node ./scripts/rea.mjs run ./examples/robots-offline.mjs",
+    "demo:async": "node ./examples/async-system-demo.mjs",
+    "demo:routed": "node ./scripts/rea.mjs run ./examples/routed-system.config.mjs",
+    "console:async": "node ./scripts/async_console.mjs",
+    "test:async": "node --test test/async-*.test.mjs test/framework-systems.test.mjs test/libero-programs.test.mjs test/route-memory.test.mjs test/routed-runtime.test.mjs test/route-table-tool.test.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:py": "python3 -m unittest discover -s test && cd agent-vla-async && PYTHONPATH=src python3 -m unittest discover -s tests",
+    "test:aloha": "node --test test/aloha-*.test.mjs test/pi05.test.mjs && python3 -m unittest discover -s test -p test_aloha*.py && python3 -m unittest discover -s test -p test_pi05_client.py && python3 -m unittest discover -s test -p test_lingbot_vla_client.py",
+    "test:all": "npm test && npm run test:py",
+    "eval:latency": "node eval/prompt_latency.mjs",
+    "eval:memory": "node eval/memory_ab.mjs",
+    "eval:episodes": "node eval/analyse_episodes.mjs"
+  },
+  "optionalDependencies": {
+    "undici": "^7.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/InfRec-Cardinal/REA.git"
+  },
+  "homepage": "https://github.com/InfRec-Cardinal/REA#readme",
+  "bugs": {
+    "url": "https://github.com/InfRec-Cardinal/REA/issues"
+  }
+}

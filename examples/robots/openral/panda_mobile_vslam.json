@@ -1,0 +1,5 @@
+{
+  "robotId": "panda_mobile_vslam",
+  "mode": "sim",
+  "cameraNames": []
+}

@@ -1,0 +1,2 @@
+# Client-only dependencies; serve an ALOHA-compatible pi0.5 checkpoint separately.
+-r requirements-lingbot-vla.txt

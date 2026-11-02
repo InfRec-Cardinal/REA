@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-vla-async"
+version = "0.1.0"
+description = "REA cerebellum: asynchronous agent brain / VLA runtime for the Unitree G1"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+policy = [
+  "numpy>=1.23,<3",
+  "msgpack>=1.0,<2",
+  "msgpack-numpy>=0.4,<1",
+  "pyzmq>=24,<28",
+]
+test = [
+  "numpy>=1.23,<3",
+]
+
+[project.scripts]
+g1-vla-cerebellum = "agent_vla_async.cerebellum:main"
+g1-vla-rpc = "agent_vla_async.cli:main"
+g1-vla-walk = "agent_vla_async.physical_steps_mission:main"
+g1-vla-brain = "agent_vla_async.brain:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,570 @@
+{
+  "openral": {
+    "count": 21,
+    "sceneRequiredMeaning": "No bare simulation entry is declared; simulation requires a separate scene adapter. This does not confirm that such a scene is available.",
+    "robots": [
+      {
+        "id": "aloha_agilex",
+        "name": "aloha_agilex",
+        "manifest": "robots/aloha_agilex/robot.yaml",
+        "embodimentKind": "bimanual",
+        "hal": {
+          "sim": null,
+          "real": null
+        },
+        "sim": {
+          "configured": false
+        },
+        "assets": {},
+        "sceneRequired": true
+      },
+      {
+        "id": "aloha_bimanual",
+        "name": "aloha_bimanual",
+        "manifest": "robots/aloha_bimanual/robot.yaml",
+        "embodimentKind": "bimanual",
+        "hal": {
+          "sim": "openral_hal.aloha:AlohaMujocoHAL",
+          "real": "openral_hal.aloha:AlohaHAL"
+        },
+        "sim": {
+          "configured": true
+        },
+        "assets": {
+          "mjcf": {
+            "ref": "gym_aloha:bimanual_viperx_transfer_cube",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          }
+        },
+        "sceneRequired": false
+      },
+      {
+        "id": "anvil_openarm_v2",
+        "name": "anvil_openarm_v2",
+        "manifest": "robots/anvil_openarm_v2/robot.yaml",
+        "embodimentKind": "bimanual",
+        "hal": {
+          "sim": "openral_hal.anvil_openarm_v2:AnvilOpenArmV2MujocoHAL",
+          "real": null
+        },
+        "sim": {
+          "configured": true
+        },
+        "assets": {
+          "mjcf": {
+            "ref": "openarm:anvil_v2_bimanual",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          }
+        },
+        "sceneRequired": false
+      },
+      {
+        "id": "franka_panda",
+        "name": "franka_panda",
+        "manifest": "robots/franka_panda/robot.yaml",
+        "embodimentKind": "manipulator",
+        "hal": {
+          "sim": "openral_hal.franka_panda:FrankaPandaHAL",
+          "real": "openral_hal.franka_panda_real:FrankaPandaRealHAL"
+        },
+        "sim": {
+          "configured": true
+        },
+        "assets": {
+          "urdf": {
+            "ref": "rd:panda_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          },
+          "mjcf": {
+            "ref": "rd:panda_mj_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          },
+          "srdf": {
+            "ref": "file:franka_panda.srdf",
+            "path": "robots/franka_panda/franka_panda.srdf",
+            "exists": true,
+            "resolution": "local"
+          }
+        },
+        "sceneRequired": false
+      },
+      {
+        "id": "g1",
+        "name": "g1",
+        "manifest": "robots/g1/robot.yaml",
+        "embodimentKind": "humanoid",
+        "hal": {
+          "sim": "openral_hal.g1:G1MujocoHAL",
+          "real": null
+        },
+        "sim": {
+          "configured": true
+        },
+        "assets": {
+          "urdf": {
+            "ref": "rd:g1_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          },
+          "mjcf": {
+            "ref": "rd:g1_mj_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          }
+        },
+        "sceneRequired": false
+      },
+      {
+        "id": "galaxea_a1",
+        "name": "galaxea_a1",
+        "manifest": "robots/galaxea_a1/robot.yaml",
+        "embodimentKind": "manipulator",
+        "hal": {
+          "sim": null,
+          "real": "openral_hal.galaxea_a1:GalaxeaA1HAL"
+        },
+        "sim": {
+          "configured": false
+        },
+        "assets": {},
+        "sceneRequired": true
+      },
+      {
+        "id": "google_robot",
+        "name": "google_robot",
+        "manifest": "robots/google_robot/robot.yaml",
+        "embodimentKind": "mobile_manipulator",
+        "hal": {
+          "sim": null,
+          "real": null
+        },
+        "sim": {
+          "configured": false
+        },
+        "assets": {},
+        "sceneRequired": true
+      },
+      {
+        "id": "gr1",
+        "name": "gr1",
+        "manifest": "robots/gr1/robot.yaml",
+        "embodimentKind": "humanoid",
+        "hal": {
+          "sim": null,
+          "real": null
+        },
+        "sim": {
+          "configured": false
+        },
+        "assets": {
+          "urdf": {
+            "ref": "rd:gr1_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          }
+        },
+        "sceneRequired": true
+      },
+      {
+        "id": "h1",
+        "name": "h1",
+        "manifest": "robots/h1/robot.yaml",
+        "embodimentKind": "humanoid",
+        "hal": {
+          "sim": "openral_hal.h1:H1MujocoHAL",
+          "real": null
+        },
+        "sim": {
+          "configured": true
+        },
+        "assets": {
+          "urdf": {
+            "ref": "file:h1.urdf",
+            "path": "robots/h1/h1.urdf",
+            "exists": true,
+            "resolution": "local"
+          },
+          "mjcf": {
+            "ref": "rd:h1_mj_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          }
+        },
+        "sceneRequired": false
+      },
+      {
+        "id": "openarm",
+        "name": "openarm_v2",
+        "manifest": "robots/openarm/robot.yaml",
+        "embodimentKind": "bimanual",
+        "hal": {
+          "sim": "openral_hal.openarm:OpenArmMujocoHAL",
+          "real": "openral_hal.openarm_real:OpenArmRealHAL"
+        },
+        "sim": {
+          "configured": true
+        },
+        "assets": {
+          "urdf": {
+            "ref": "file:openarm.urdf",
+            "path": "robots/openarm/openarm.urdf",
+            "exists": true,
+            "resolution": "local"
+          },
+          "mjcf": {
+            "ref": "openarm:bimanual",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          },
+          "srdf": {
+            "ref": "file:openarm.srdf",
+            "path": "robots/openarm/openarm.srdf",
+            "exists": true,
+            "resolution": "local"
+          }
+        },
+        "sceneRequired": false
+      },
+      {
+        "id": "panda_mobile",
+        "name": "panda_mobile",
+        "manifest": "robots/panda_mobile/robot.yaml",
+        "embodimentKind": "mobile_manipulator",
+        "hal": {
+          "sim": "openral_hal.panda_mobile:PandaMobileHAL",
+          "real": null
+        },
+        "sim": {
+          "configured": false
+        },
+        "assets": {
+          "urdf": {
+            "ref": "rd:panda_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          },
+          "srdf": {
+            "ref": "file:panda_mobile.srdf",
+            "path": "robots/panda_mobile/panda_mobile.srdf",
+            "exists": true,
+            "resolution": "local"
+          }
+        },
+        "sceneRequired": false
+      },
+      {
+        "id": "panda_mobile_vslam",
+        "name": "panda_mobile_vslam",
+        "manifest": "robots/panda_mobile_vslam/robot.yaml",
+        "embodimentKind": "mobile_manipulator",
+        "hal": {
+          "sim": "openral_hal.panda_mobile:PandaMobileHAL",
+          "real": null
+        },
+        "sim": {
+          "configured": false
+        },
+        "assets": {
+          "urdf": {
+            "ref": "rd:panda_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          },
+          "srdf": {
+            "ref": "file:panda_mobile_vslam.srdf",
+            "path": "robots/panda_mobile_vslam/panda_mobile_vslam.srdf",
+            "exists": true,
+            "resolution": "local"
+          }
+        },
+        "sceneRequired": false
+      },
+      {
+        "id": "pusht_2d",
+        "name": "pusht_2d",
+        "manifest": "robots/pusht_2d/robot.yaml",
+        "embodimentKind": "manipulator",
+        "hal": {
+          "sim": null,
+          "real": null
+        },
+        "sim": {
+          "configured": false
+        },
+        "assets": {},
+        "sceneRequired": true
+      },
+      {
+        "id": "r1pro",
+        "name": "r1pro",
+        "manifest": "robots/r1pro/robot.yaml",
+        "embodimentKind": "mobile_manipulator",
+        "hal": {
+          "sim": null,
+          "real": null
+        },
+        "sim": {
+          "configured": false
+        },
+        "assets": {},
+        "sceneRequired": true
+      },
+      {
+        "id": "rizon4",
+        "name": "rizon4",
+        "manifest": "robots/rizon4/robot.yaml",
+        "embodimentKind": "manipulator",
+        "hal": {
+          "sim": "openral_hal.flexiv_rizon4:Rizon4MujocoHAL",
+          "real": null
+        },
+        "sim": {
+          "configured": true
+        },
+        "assets": {
+          "urdf": {
+            "ref": "file:rizon4.urdf",
+            "path": "robots/rizon4/rizon4.urdf",
+            "exists": true,
+            "resolution": "local"
+          },
+          "mjcf": {
+            "ref": "rd:rizon4_mj_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          },
+          "srdf": {
+            "ref": "file:rizon4.srdf",
+            "path": "robots/rizon4/rizon4.srdf",
+            "exists": true,
+            "resolution": "local"
+          }
+        },
+        "sceneRequired": false
+      },
+      {
+        "id": "sawyer",
+        "name": "sawyer",
+        "manifest": "robots/sawyer/robot.yaml",
+        "embodimentKind": "manipulator",
+        "hal": {
+          "sim": null,
+          "real": "openral_hal.sawyer_real:SawyerRealHAL"
+        },
+        "sim": {
+          "configured": false
+        },
+        "assets": {
+          "mjcf": {
+            "ref": "rd:sawyer_mj_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          }
+        },
+        "sceneRequired": true
+      },
+      {
+        "id": "so100_follower",
+        "name": "so100_follower",
+        "manifest": "robots/so100_follower/robot.yaml",
+        "embodimentKind": "manipulator",
+        "hal": {
+          "sim": null,
+          "real": "openral_hal.so100_follower:SO100FollowerHAL"
+        },
+        "sim": {
+          "configured": true
+        },
+        "assets": {
+          "urdf": {
+            "ref": "file:so100_follower.urdf",
+            "path": "robots/so100_follower/so100_follower.urdf",
+            "exists": true,
+            "resolution": "local"
+          },
+          "mjcf": {
+            "ref": "rd:so_arm100_mj_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          }
+        },
+        "sceneRequired": false
+      },
+      {
+        "id": "so101_follower",
+        "name": "so101_follower",
+        "manifest": "robots/so101_follower/robot.yaml",
+        "embodimentKind": "manipulator",
+        "hal": {
+          "sim": null,
+          "real": "openral_hal.so100_follower:SO100FollowerHAL"
+        },
+        "sim": {
+          "configured": true
+        },
+        "assets": {
+          "urdf": {
+            "ref": "file:so101_follower.urdf",
+            "path": "robots/so101_follower/so101_follower.urdf",
+            "exists": true,
+            "resolution": "local"
+          },
+          "mjcf": {
+            "ref": "rd:so_arm101_mj_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          }
+        },
+        "sceneRequired": false
+      },
+      {
+        "id": "ur10e",
+        "name": "ur10e",
+        "manifest": "robots/ur10e/robot.yaml",
+        "embodimentKind": "manipulator",
+        "hal": {
+          "sim": "openral_hal.ur:UR10eHAL",
+          "real": "openral_hal.ur_real:UR10eRealHAL"
+        },
+        "sim": {
+          "configured": true
+        },
+        "assets": {
+          "urdf": {
+            "ref": "file:ur10e.urdf",
+            "path": "robots/ur10e/ur10e.urdf",
+            "exists": true,
+            "resolution": "local"
+          },
+          "mjcf": {
+            "ref": "rd:ur10e_mj_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          },
+          "srdf": {
+            "ref": "file:ur10e.srdf",
+            "path": "robots/ur10e/ur10e.srdf",
+            "exists": true,
+            "resolution": "local"
+          }
+        },
+        "sceneRequired": false
+      },
+      {
+        "id": "ur5e",
+        "name": "ur5e",
+        "manifest": "robots/ur5e/robot.yaml",
+        "embodimentKind": "manipulator",
+        "hal": {
+          "sim": "openral_hal.ur:UR5eHAL",
+          "real": "openral_hal.ur_real:UR5eRealHAL"
+        },
+        "sim": {
+          "configured": true
+        },
+        "assets": {
+          "urdf": {
+            "ref": "file:ur5e.urdf",
+            "path": "robots/ur5e/ur5e.urdf",
+            "exists": true,
+            "resolution": "local"
+          },
+          "mjcf": {
+            "ref": "rd:ur5e_mj_description",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          },
+          "srdf": {
+            "ref": "file:ur5e.srdf",
+            "path": "robots/ur5e/ur5e.srdf",
+            "exists": true,
+            "resolution": "local"
+          }
+        },
+        "sceneRequired": false
+      },
+      {
+        "id": "widowx",
+        "name": "widowx",
+        "manifest": "robots/widowx/robot.yaml",
+        "embodimentKind": "manipulator",
+        "hal": {
+          "sim": null,
+          "real": null
+        },
+        "sim": {
+          "configured": false
+        },
+        "assets": {
+          "mjcf": {
+            "ref": "menagerie:trossen_wx250s",
+            "path": null,
+            "exists": null,
+            "resolution": "external_not_checked"
+          }
+        },
+        "sceneRequired": true
+      }
+    ]
+  },
+  "rpent": {
+    "count": 3,
+    "robots": [
+      {
+        "id": "libero",
+        "name": "libero",
+        "spec": "robots/libero/robot_spec.py",
+        "envServer": true,
+        "envClient": true,
+        "vlaServer": false,
+        "vlaClient": false
+      },
+      {
+        "id": "robocasa",
+        "name": "robocasa",
+        "spec": "robots/robocasa/robot_spec.py",
+        "envServer": true,
+        "envClient": true,
+        "vlaServer": true,
+        "vlaClient": true
+      },
+      {
+        "id": "robotwin",
+        "name": "robotwin",
+        "spec": "robots/robotwin/robot_spec.py",
+        "envServer": true,
+        "envClient": true,
+        "vlaServer": true,
+        "vlaClient": true
+      }
+    ]
+  },
+  "sources": {
+    "openral": "https://github.com/OpenRAL/openral",
+    "rpent": "https://github.com/RLinf/RPent",
+    "inspectedOn": "2026-09-08",
+    "openralVersion": "0.3.1",
+    "scope": "Manifest and package inventory; declarations do not imply physical hardware or complete benchmark validation."
+  }
+}

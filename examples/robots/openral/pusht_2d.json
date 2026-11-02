@@ -1,0 +1,5 @@
+{
+  "robotId": "pusht_2d",
+  "mode": "sim",
+  "simEnvYaml": "scenes/sim/pusht.yaml"
+}

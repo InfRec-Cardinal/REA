@@ -1,0 +1,5 @@
+{
+  "robotId": "anvil_openarm_v2",
+  "mode": "sim",
+  "cameraNames": []
+}

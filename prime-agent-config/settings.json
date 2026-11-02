@@ -1,0 +1,13 @@
+{
+  "compaction": {
+    "enabled": false
+  },
+  "retry": {
+    "enabled": false,
+    "maxRetries": 0,
+    "provider": {
+      "timeoutMs": 8000,
+      "maxRetries": 0
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "robotId": "gr1",
+  "mode": "sim",
+  "simEnvYaml": "scenes/sim/robocasa_gr1_pnp_cup_to_drawer.yaml"
+}

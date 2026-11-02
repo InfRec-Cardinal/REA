@@ -1,0 +1,23 @@
+{
+  "model": "your-model",
+  "reasoning_effort": "medium",
+  "max_output_tokens": 2048,
+  "max_decisions": 40,
+  "history_limit": 12,
+  "max_notes_chars": 4000,
+  "thought_history": 6,
+  "result_chars": 300,
+  "patience": 3,
+  "max_deliberate_fraction": 0.5,
+  "reflex_instructions": "Choose the next skill from the image, your own history and the instruction. Keep a short plan in episode notes.",
+  "deliberate_instructions": "Your recent decisions did not make progress; the supervisor guidance says why. Re-examine the image and the instruction, decide what is still missing, and choose a clearly different action.",
+  "prompt_rules": "v7",
+  "helpers": true,
+  "max_helper_calls": 3,
+  "max_turns": 4,
+  "request_timeout_s": 180,
+  "max_retries": 2,
+  "decision_retries": 0,
+  "max_consecutive_worker_errors": 3,
+  "image_detail": "high"
+}

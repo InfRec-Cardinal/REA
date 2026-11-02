@@ -1,0 +1,5 @@
+{
+  "robotId": "sawyer",
+  "mode": "sim",
+  "simEnvYaml": "./scenes/metaworld_push.yaml"
+}

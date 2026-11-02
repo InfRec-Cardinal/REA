@@ -1,0 +1,3 @@
+# Dataset inspection and RGB frame decoding. Online OmniGibson is installed separately.
+pyarrow>=18,<26
+opencv-python-headless>=4.7,<5

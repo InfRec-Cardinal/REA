@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "offline-demo",
+  "environment": {
+    "type": "demo",
+    "options": {}
+  },
+  "policy": {
+    "type": "demo",
+    "options": {}
+  },
+  "episodes": [
+    {
+      "id": "grid",
+      "task": "grid",
+      "seed": 0
+    },
+    {
+      "id": "joints",
+      "task": "joints",
+      "seed": 0
+    }
+  ],
+  "budget": {
+    "maxSteps": 8,
+    "maxDurationMs": 10000,
+    "decisionTimeoutMs": 1000
+  }
+}

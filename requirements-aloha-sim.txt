@@ -1,0 +1,5 @@
+dm-control>=1.0.20,<1.1
+mujoco>=3.2,<4
+numpy>=1.23,<2
+matplotlib>=3.7,<4
+ipython>=8,<9

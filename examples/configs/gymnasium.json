@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "name": "gymnasium-cartpole",
+  "environment": {
+    "type": "gymnasium",
+    "options": {
+      "environmentId": "CartPole-v1"
+    }
+  },
+  "policy": {
+    "type": "chat",
+    "options": {}
+  },
+  "episodes": [
+    {
+      "id": "CartPole-v1:0",
+      "seed": 0,
+      "instruction": "Balance the pole for as long as possible using the observed position, velocity and angle."
+    }
+  ],
+  "budget": {
+    "maxSteps": 200,
+    "maxDurationMs": 900000,
+    "decisionTimeoutMs": 60000
+  }
+}

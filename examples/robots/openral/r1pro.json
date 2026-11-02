@@ -1,0 +1,5 @@
+{
+  "robotId": "r1pro",
+  "mode": "sim",
+  "simEnvYaml": "scenes/sim/behavior_turning_on_radio.yaml"
+}

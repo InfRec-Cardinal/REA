@@ -1,0 +1,5 @@
+{
+  "robotId": "widowx",
+  "mode": "sim",
+  "simEnvYaml": "scenes/sim/widowx_carrot_on_plate.yaml"
+}

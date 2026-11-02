@@ -1,0 +1,5 @@
+{
+  "robot": "robotwin",
+  "endpoint": "http://127.0.0.1:8803",
+  "shutdownOnClose": false
+}

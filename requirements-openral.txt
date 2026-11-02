@@ -1,0 +1,7 @@
+openral-hal>=0.3.1,<0.4
+openral-sim>=0.3.1,<0.4
+mujoco>=3.2,<4
+# Rizon4 is present upstream but absent from the tested PyPI 1.23 release.
+robot-descriptions @ git+https://github.com/robot-descriptions/robot_descriptions.py.git
+gym-aloha>=0.1.2,<0.2
+onnxruntime>=1.17,<2

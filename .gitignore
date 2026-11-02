@@ -1,0 +1,39 @@
+# Dependencies and local runtimes
+node_modules/
+.venv/
+.venv-*/
+runtime/
+.runtime/
+*.egg-info/
+build/
+dist/
+__pycache__/
+*.pyc
+
+# Local configuration and credentials
+.env
+*.key
+secrets/
+
+# Prime Agent: the model catalogue, settings and the empty auth example are versioned; everything else under
+# prime-agent-config is per-run state (credentials, sockets, worker bookkeeping, logs).
+prime-agent-config/*
+!prime-agent-config/auth.example.json
+!prime-agent-config/models.json
+!prime-agent-config/settings.json
+
+# Run outputs, recordings and checkpoints
+outputs/
+eval/out/
+**/results/
+checkpoints/
+session-artifacts/
+*.log
+*.jsonl
+*.jpg
+*.png
+*.npy
+
+# Editor and OS metadata
+._*
+.DS_Store

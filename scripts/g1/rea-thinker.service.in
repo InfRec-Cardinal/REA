@@ -1,0 +1,15 @@
+[Unit]
+Description=REA Thinker — asynchronous advisory reviewer (loopback only, no actuator)
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=@TARGET@
+Environment=NODE_ENV=production
+EnvironmentFile=@TARGET@/.env
+ExecStart=@TARGET@/runtime/node/bin/node @TARGET@/thinker.mjs
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target

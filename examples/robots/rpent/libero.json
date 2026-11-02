@@ -1,0 +1,5 @@
+{
+  "robot": "libero",
+  "endpoint": "http://127.0.0.1:8801",
+  "shutdownOnClose": false
+}

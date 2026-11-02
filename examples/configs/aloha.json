@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "name": "aloha-transfer-cube",
+  "environment": {
+    "type": "aloha",
+    "options": {
+      "mode": "sim",
+      "execute": true
+    }
+  },
+  "policy": {
+    "type": "chat",
+    "options": {}
+  },
+  "episodes": [
+    {
+      "id": "transfer-cube:0",
+      "task": {
+        "taskName": "sim_transfer_cube_scripted"
+      },
+      "seed": 0,
+      "instruction": "Transfer the cube between the two grippers using the camera observations and joint positions."
+    }
+  ],
+  "budget": {
+    "maxSteps": 20,
+    "maxDurationMs": 900000,
+    "decisionTimeoutMs": 60000
+  }
+}

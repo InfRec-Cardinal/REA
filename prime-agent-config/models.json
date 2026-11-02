@@ -1,0 +1,43 @@
+{
+  "providers": {
+    "openai-compatible": {
+      "baseUrl": "https://api.openai.com/v1",
+      "api": "openai-completions",
+      "apiKey": "REA_API_KEY",
+      "authHeader": true,
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false,
+        "supportsStore": false,
+        "supportsStrictMode": false,
+        "supportsUsageInStreaming": true,
+        "maxTokensField": "max_tokens"
+      },
+      "models": [
+        {
+          "id": "your-vision-model",
+          "name": "Your vision model",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "off"
+          },
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 1000000,
+          "maxTokens": 1,
+          "compat": {
+            "thinkingFormat": "deepseek"
+          }
+        }
+      ]
+    }
+  }
+}

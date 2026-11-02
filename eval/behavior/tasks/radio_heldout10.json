@@ -1,0 +1,19 @@
+[
+ {
+  "suite": "behavior",
+  "task": "radio",
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "_rule": "held-out instances 1-10: evaluate only; never tune programs, route tables or judges on them"
+ }
+]

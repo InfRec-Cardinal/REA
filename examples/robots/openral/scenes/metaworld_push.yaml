@@ -1,0 +1,17 @@
+# Adapted from OpenRAL scenes/benchmark/metaworld_push.yaml for its SimScene loader.
+robot_id: sawyer
+scene:
+  id: metaworld
+  backend: mujoco
+  observation_height: 256
+  observation_width: 256
+  cameras:
+  - front
+task:
+  id: metaworld/push-v3
+  scene_id: metaworld
+  instruction: push the puck to the goal
+  success_key: success
+  max_steps: 500
+n_episodes: 1
+seed: 0

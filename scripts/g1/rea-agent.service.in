@@ -1,0 +1,23 @@
+[Unit]
+Description=Routed Embodied Agent (REA) — one-token G1 controller with the fused safety gate
+After=network-online.target rea-thinker.service
+Wants=rea-thinker.service
+
+[Service]
+Type=simple
+WorkingDirectory=@TARGET@
+Environment=NODE_ENV=production
+Environment=PATH=@TARGET@/runtime/node/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=PRIME_AGENT_BIN=@TARGET@/runtime/prime-agent/node_modules/.bin/prime-agent
+Environment=PRIME_AGENT_CODING_AGENT_DIR=@TARGET@/prime-agent-config
+EnvironmentFile=@TARGET@/.env
+ExecStart=@TARGET@/runtime/node/bin/node @TARGET@/server.mjs
+# Allow the camera and Prime RPC child processes to close cleanly before SIGKILL.
+KillSignal=SIGTERM
+KillMode=control-group
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target

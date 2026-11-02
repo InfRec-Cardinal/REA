@@ -1,0 +1,5 @@
+{
+  "robotId": "franka_panda",
+  "mode": "sim",
+  "cameraNames": []
+}

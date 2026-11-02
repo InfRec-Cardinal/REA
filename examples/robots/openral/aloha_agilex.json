@@ -1,0 +1,5 @@
+{
+  "robotId": "aloha_agilex",
+  "mode": "sim",
+  "simEnvYaml": "./scenes/robotwin_handover_block.yaml"
+}

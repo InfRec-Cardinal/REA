@@ -1,0 +1,164 @@
+{
+  "tokens": [
+    "X",
+    "W",
+    "S",
+    "A",
+    "D",
+    "Q",
+    "E",
+    "U",
+    "P",
+    "R"
+  ],
+  "token_map": {
+    "X": {
+      "name": "STOP",
+      "kind": "stop",
+      "vx": 0,
+      "vy": 0,
+      "yaw": 0,
+      "duration_s": 0,
+      "action_id": null
+    },
+    "W": {
+      "name": "FORWARD",
+      "kind": "velocity",
+      "vx": 0.3,
+      "vy": 0,
+      "yaw": -0.075,
+      "duration_s": 2,
+      "action_id": null
+    },
+    "S": {
+      "name": "BACKWARD",
+      "kind": "velocity",
+      "vx": -0.3,
+      "vy": 0,
+      "yaw": 0,
+      "duration_s": 0.6,
+      "action_id": null
+    },
+    "A": {
+      "name": "STRAFE_LEFT",
+      "kind": "velocity",
+      "vx": 0,
+      "vy": 0.3,
+      "yaw": 0,
+      "duration_s": 0.6,
+      "action_id": null
+    },
+    "D": {
+      "name": "STRAFE_RIGHT",
+      "kind": "velocity",
+      "vx": 0,
+      "vy": -0.3,
+      "yaw": 0,
+      "duration_s": 0.6,
+      "action_id": null
+    },
+    "Q": {
+      "name": "TURN_LEFT",
+      "kind": "velocity",
+      "vx": 0,
+      "vy": 0,
+      "yaw": 0.35,
+      "duration_s": 0.6,
+      "action_id": null
+    },
+    "E": {
+      "name": "TURN_RIGHT",
+      "kind": "velocity",
+      "vx": 0,
+      "vy": 0,
+      "yaw": -0.35,
+      "duration_s": 0.6,
+      "action_id": null
+    },
+    "U": {
+      "name": "ARM_UP",
+      "kind": "arm_primitive",
+      "vx": null,
+      "vy": null,
+      "yaw": null,
+      "duration_s": null,
+      "action_id": 18
+    },
+    "P": {
+      "name": "ARM_PUSH",
+      "kind": "arm_primitive",
+      "vx": null,
+      "vy": null,
+      "yaw": null,
+      "duration_s": null,
+      "action_id": 36
+    },
+    "R": {
+      "name": "ARM_RELEASE",
+      "kind": "arm_primitive",
+      "vx": null,
+      "vy": null,
+      "yaw": null,
+      "duration_s": null,
+      "action_id": 99
+    }
+  },
+  "manipulation": {
+    "box_lift": {
+      "available": false,
+      "reason": "No validated grasp-and-lift primitive is available; clamping is not grasping."
+    },
+    "available_arm_primitives": [
+      "both_hands_up",
+      "forward_push",
+      "release_arm"
+    ],
+    "gripper_available": false
+  },
+  "gate": {
+    "use_lidar": false,
+    "request_may_disable_lidar": false,
+    "live_depth_at_execution": true,
+    "pipeline_fresh_max_s": 1,
+    "depth_near_center_m": 0.55,
+    "depth_near_side_m": 0.35,
+    "depth_floor_center_m": 0.25,
+    "depth_floor_side_m": 0.2,
+    "lidar": {
+      "snapshot": "/run/user/1000/g1-livox/obstacles.json",
+      "max_age_s": 0.6,
+      "near_center_m": 0.9,
+      "near_side_m": 0.45
+    }
+  },
+  "engines": {
+    "prime": {
+      "harness": "prime-agent-rpc",
+      "harness_version": "0.8.0",
+      "installed_version": "0.8.0",
+      "model_output_tokens": 1,
+      "reasoning": false,
+      "persistent": true,
+      "pool_size": 2,
+      "default": true
+    },
+    "token": {
+      "model_output_tokens": 1,
+      "reasoning": false,
+      "default": false
+    },
+    "tool": {
+      "model_output_tokens": 64,
+      "reasoning": false,
+      "default": false
+    },
+    "react": {
+      "model_output_tokens": 160,
+      "reasoning": "bounded_react",
+      "max_iterations": 2,
+      "model": "golden-model",
+      "deliberate": true,
+      "default": false
+    }
+  }
+}

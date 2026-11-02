@@ -1,0 +1,9 @@
+[
+ {
+  "suite": "behavior",
+  "task": "trash",
+  "seeds": [
+   26
+  ]
+ }
+]

@@ -1,0 +1,4 @@
+You control an R1Pro mobile manipulator through the Python API described below.
+Goal: pick up the power drill on the workbench table.
+Find the object with the perception helpers, move until it is in view and within reach, sample a grasp pose,
+grasp it with one arm and lift that arm. Check the hand after every grasp before you continue.

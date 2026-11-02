@@ -1,0 +1,19 @@
+# Adapted from OpenRAL scenes/benchmark/robotwin_handover_block.yaml for its SimScene loader.
+robot_id: aloha_agilex
+scene:
+  id: robotwin
+  backend: sapien
+  observation_height: 256
+  observation_width: 256
+  cameras:
+  - top
+  - wrist_left
+  - wrist_right
+task:
+  id: robotwin/handover_block
+  scene_id: robotwin
+  instruction: pick up the block with one arm and hand it over to the other arm
+  success_key: is_success
+  max_steps: 300
+n_episodes: 1
+seed: 0

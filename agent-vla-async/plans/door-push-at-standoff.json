@@ -1,0 +1,21 @@
+{
+  "source": "agent_plan",
+  "task": "The robot stands aligned in front of the door: push the door forward, then release the arm",
+  "navigation": null,
+  "arm_steps": [
+    {
+      "action": "forward_push",
+      "parameters": {
+        "wait": true,
+        "timeout_s": 15.0
+      }
+    },
+    {
+      "action": "release_arm",
+      "parameters": {
+        "wait": true,
+        "timeout_s": 10.0
+      }
+    }
+  ]
+}

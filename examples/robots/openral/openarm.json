@@ -1,0 +1,5 @@
+{
+  "robotId": "openarm",
+  "mode": "sim",
+  "cameraNames": []
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>REA · Async Observatory</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <header class="masthead"><a class="wordmark" href="/"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span> REA / OBSERVATORY</a><span class="connection" id="connection">LOCAL CONSOLE</span></header>
+    <section class="hero" aria-labelledby="title">
+      <div class="intro">
+        <p class="eyebrow">SYSTEM 0 ↔ SYSTEM 1 ↔ SYSTEM 2</p>
+        <h1 id="title">Acting and thinking,<br><em>at the same time.</em></h1>
+        <p class="description">Router keeps choosing a capability. The agent thinks in the background,<br class="desktop">and new advice takes effect at the next routing decision.</p>
+        <div class="controls"><button class="primary" id="run-async">Run async <span>↗</span></button><button id="run-sync">Run serial baseline</button><button id="cancel" disabled>Stop</button></div>
+        <p class="source-note" id="source-note">Scheduling demo · local deterministic scene · not a benchmark score</p>
+      </div>
+      <div class="scene-panel">
+        <div class="panel-heading"><span id="scene-heading">REACH / DETOUR</span><span class="badge" id="run-state">READY</span></div>
+        <svg id="scene" viewBox="0 0 430 230" role="img" aria-label="Scheduling demo: an executor approaches a target around an obstacle">
+          <defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#d9ddd4" stroke-width=".6"/></pattern></defs>
+          <rect x="18" y="15" width="394" height="199" fill="url(#grid)"/>
+          <line x1="45" y1="166" x2="386" y2="166" class="axis"/>
+          <path id="trace" d="M 45 166" fill="none" stroke="#398167" stroke-width="2" stroke-dasharray="4 4"/>
+          <rect x="183" y="115" width="44" height="71" rx="1" fill="#d0d3c8" stroke="#a8afa1"/>
+          <text x="205" y="205" text-anchor="middle" class="svg-label">FIXTURE</text>
+          <circle cx="375" cy="55" r="18" fill="none" stroke="#398167" stroke-width="1"/>
+          <path d="M 366 55 h 18 M 375 46 v 18" stroke="#398167"/>
+          <text x="375" y="26" text-anchor="middle" class="svg-label">TARGET</text>
+          <circle id="effector-halo" cx="45" cy="166" r="17" fill="#d9e6dc"/>
+          <circle id="effector" cx="45" cy="166" r="7" fill="#225c46"/>
+          <text x="30" y="32" class="svg-label">SIMULATED WORKSPACE</text>
+        </svg>
+        <div id="replay-scene" hidden><span>RECORDED RUNTIME EVENTS</span><p>Benchmark event replay</p><small>The original log has no camera frames<br>The timeline below shows the actual scheduling and execution</small></div>
+        <div class="scene-caption"><span id="current-controller">Waiting for the first route</span><span id="step-count">STEP 00</span></div>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="Run metrics">
+      <div id="first-action-metric"><span id="first-action-label">First dispatch</span><strong id="first-action">—</strong><small id="first-action-caption">after reset</small></div>
+      <div><span>Thinking × execution overlap</span><strong id="overlap">—</strong><small>intersection of wall-clock intervals</small></div>
+      <div><span>Blocked waiting for thinking</span><strong id="blocked">—</strong><small>time spent waiting serially</small></div>
+      <div><span>Routing while thinking</span><strong id="routing-count">—</strong><small>System 1 keeps working</small></div>
+      <div><span>Corrections</span><strong id="corrections">—</strong><small>applied to later actions</small></div>
+    </section>
+
+    <section class="timeline-section" aria-labelledby="timeline-title">
+      <div class="section-heading"><h2 id="timeline-title">One shared timeline</h2><div class="timeline-key"><i></i><span>Recorded runtime events</span><span class="clock" id="elapsed">0.00 s</span></div></div>
+      <div class="ruler"><span>0 s</span><span id="ruler-mid">3 s</span><span id="ruler-end">6 s</span></div>
+      <div class="lane thinking" data-lane="thinking"><div class="lane-info"><b>02</b><div><h3>Brain <span>SYSTEM 2</span></h3><p>Agent · reasoning and correction</p></div><span class="lane-state">standby</span></div><div class="track" id="track-thinking"></div></div>
+      <div class="lane routing" data-lane="routing"><div class="lane-info"><b>01</b><div><h3>Router <span>SYSTEM 1</span></h3><p>Picks a capability · applies new advice</p></div><span class="lane-state">standby</span></div><div class="track" id="track-routing"></div></div>
+      <div class="lane action" data-lane="action"><div class="lane-info"><b>00</b><div><h3>Execution <span>SYSTEM 0</span></h3><p>SDK · VLA · motion controllers</p></div><span class="lane-state">standby</span></div><div class="track" id="track-action"></div></div>
+      <div class="advice" id="advice"><span>↳</span><p>Start a run to see how the first action, background thinking and applied advice relate.</p></div>
+    </section>
+
+    <section class="bottom-grid">
+      <div class="event-section"><div class="section-heading"><h2>Events</h2><span id="event-count">0 EVENTS</span></div><div class="events" id="events"><p class="empty">Runtime events arrive over SSE. Routing and execution details appear here after a run.</p></div></div>
+      <div class="runs-section"><div class="section-heading"><h2>Comparison</h2><button class="text-button" id="refresh">Refresh ↻</button></div><div id="runs"><p class="empty">Run the asynchronous and the serial version to compare first-action latency and time spent waiting for the brain.</p></div><p class="comparison-note">The scheduling demo keeps the scene and controllers fixed. Recorded benchmark runs are marked as replays and shown separately.</p></div>
+    </section>
+    <p class="error" id="error" role="alert" hidden></p>
+    <footer><span>ASYNC OBSERVATORY</span><span>Every step is observable, from submission and routing to execution and correction.</span><span>LOCAL / SSE</span></footer>
+  </main>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

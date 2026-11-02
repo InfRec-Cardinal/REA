@@ -1,0 +1,18 @@
+{
+  "source": "agent_plan",
+  "task": "Multi-stage high-level SPORT motion check: forward, turn left, forward, turn right back to heading, backward",
+  "navigation": {
+    "target": "bounded_debug_loop",
+    "pulses": [
+      {"vx": 0.15, "yaw": 0.0, "duration_s": 0.60},
+      {"vx": 0.15, "yaw": 0.0, "duration_s": 0.60},
+      {"vx": 0.0, "yaw": 0.30, "duration_s": 0.60},
+      {"vx": 0.15, "yaw": 0.0, "duration_s": 0.60},
+      {"vx": 0.15, "yaw": 0.0, "duration_s": 0.20},
+      {"vx": 0.0, "yaw": -0.30, "duration_s": 0.60},
+      {"vx": -0.15, "yaw": 0.0, "duration_s": 0.60},
+      {"vx": -0.15, "yaw": 0.0, "duration_s": 0.20}
+    ]
+  },
+  "arm_steps": []
+}

@@ -1,0 +1,6 @@
+# Optional model-serving and code-head training dependencies.
+# Transformers must provide Qwen3_5ForConditionalGeneration.
+torch==2.14.1
+transformers==5.18.0
+peft==0.21.2
+Pillow==12.3.0

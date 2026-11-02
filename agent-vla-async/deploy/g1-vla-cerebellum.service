@@ -1,0 +1,16 @@
+# User unit for the cerebellum in dry-run mode. Adjust the ExecStart path to your checkout, and add your
+# policy server and camera units to After= (for example a GR00T policy server reachable on 127.0.0.1:5550).
+[Unit]
+Description=Unitree G1 asynchronous Agent/VLA cerebellum (dry-run)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+Environment=PYTHONUNBUFFERED=1
+ExecStart=%h/rea/agent-vla-async/scripts/g1vla daemon --policy groot
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target

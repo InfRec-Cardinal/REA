@@ -1,0 +1,33 @@
+{
+  "robotConfig": {
+    "type": "bi_so_follower",
+    "id": "bimanual_so101",
+    "left_arm_config": {
+      "port": "/dev/ttyACM0",
+      "use_degrees": true,
+      "cameras": {}
+    },
+    "right_arm_config": {
+      "port": "/dev/ttyACM1",
+      "use_degrees": true,
+      "cameras": {}
+    },
+    "cameras": {}
+  },
+  "registrationModules": ["lerobot.robots.bi_so_follower"],
+  "controlHz": 30,
+  "units": {
+    "left_shoulder_pan.pos": "degrees",
+    "left_shoulder_lift.pos": "degrees",
+    "left_elbow_flex.pos": "degrees",
+    "left_wrist_flex.pos": "degrees",
+    "left_wrist_roll.pos": "degrees",
+    "left_gripper.pos": "normalized 0 to 100",
+    "right_shoulder_pan.pos": "degrees",
+    "right_shoulder_lift.pos": "degrees",
+    "right_elbow_flex.pos": "degrees",
+    "right_wrist_flex.pos": "degrees",
+    "right_wrist_roll.pos": "degrees",
+    "right_gripper.pos": "normalized 0 to 100"
+  }
+}

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Robot-side entry point for the cerebellum. G1VLA_PYTHON selects the interpreter (default python3);
+# G1VLA_EXTRA_PYTHONPATH adds directories (for example navigation or camera packages) to PYTHONPATH.
+set -euo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PYTHON="${G1VLA_PYTHON:-python3}"
+export PYTHONPATH="$ROOT/src${G1VLA_EXTRA_PYTHONPATH:+:$G1VLA_EXTRA_PYTHONPATH}${PYTHONPATH:+:$PYTHONPATH}"
+
+case "${1:-}" in
+  daemon)
+    shift
+    exec "$PYTHON" -m agent_vla_async.cerebellum "$@"
+    ;;
+  rpc)
+    shift
+    exec "$PYTHON" -m agent_vla_async.cli "$@"
+    ;;
+  rpc-stream)
+    shift
+    exec "$PYTHON" -m agent_vla_async.cli --stream "$@"
+    ;;
+  walk)
+    shift
+    exec "$PYTHON" -m agent_vla_async.physical_steps_mission --auto-forward "$@"
+    ;;
+  *)
+    echo "usage: g1vla {daemon|rpc|rpc-stream|walk} [args...]" >&2
+    exit 2
+    ;;
+esac

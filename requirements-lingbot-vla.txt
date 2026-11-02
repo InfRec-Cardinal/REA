@@ -1,0 +1,5 @@
+# Optional client-only dependencies; the LingBot model runs on a separate server.
+numpy>=1.24
+Pillow>=10
+msgpack>=1.0
+websockets>=15

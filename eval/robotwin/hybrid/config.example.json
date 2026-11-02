@@ -1,0 +1,25 @@
+{
+  "routerEndpoint": "http://127.0.0.1:8810/predict",
+  "simulatorPython": "/path/to/simulator/bin/python",
+  "clientPython": "/path/to/client/bin/python",
+  "harnessRoot": "/path/to/harness",
+  "subset": "/path/to/harness/subsets/scenes",
+  "simulatorEnv": {
+    "CUDA_VISIBLE_DEVICES": "ASSIGNED_GPU_UUID",
+    "LINGBOT_GPU_PCI": "ASSIGNED_GPU_PCI"
+  },
+  "codeModel": "YOUR_CODE_MODEL",
+  "codeDecisions": 40,
+  "maxDecisions": 1500,
+  "episodeTimeoutMs": 7200000,
+  "decisionTimeoutMs": 240000,
+  "vlaEndpoints": {
+    "pi05": "ws://127.0.0.1:8900",
+    "gigabrain": "ws://127.0.0.1:8901",
+    "spatial_forcing": "ws://127.0.0.1:8902",
+    "xvla": "ws://127.0.0.1:8903",
+    "xwam": "ws://127.0.0.1:8904",
+    "patchwam": "ws://127.0.0.1:8905",
+    "medex": "ws://127.0.0.1:8906"
+  }
+}

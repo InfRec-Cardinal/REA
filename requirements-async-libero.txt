@@ -1,0 +1,2 @@
+# Optional, only for paused Python program continuations in the LIBERO-Pro pilot.
+greenlet==3.5.6

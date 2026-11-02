@@ -1,0 +1,19 @@
+{
+  "robotConfig": {
+    "type": "so101_follower",
+    "id": "so101_follower",
+    "port": "/dev/ttyACM0",
+    "use_degrees": true,
+    "cameras": {}
+  },
+  "registrationModules": ["lerobot.robots.so_follower"],
+  "controlHz": 30,
+  "units": {
+    "shoulder_pan.pos": "degrees",
+    "shoulder_lift.pos": "degrees",
+    "elbow_flex.pos": "degrees",
+    "wrist_flex.pos": "degrees",
+    "wrist_roll.pos": "degrees",
+    "gripper.pos": "normalized 0 to 100"
+  }
+}
