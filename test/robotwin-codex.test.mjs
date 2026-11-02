@@ -85,7 +85,8 @@ test("aborting a Codex decision waits for its child to exit and never executes P
     actions: [{ name: "run_python", parameters: { type: "object", properties: { code: { type: "string" } }, required: ["code"], additionalProperties: false } }] });
   const rejected = assert.rejects(pending, { name: "AbortError" });
   let dir, pid;
-  for (let i = 0; i < 100 && !pid; i += 1) {
+  // Up to 10 s for the fake CLI to start: a loaded machine (the whole suite runs in parallel) can take seconds.
+  for (let i = 0; i < 1000 && !pid; i += 1) {
     await delay(10);
     try { dir = await f.decisionDir(); pid = Number(await readFile(join(dir, "started"), "utf8")); } catch { /* wait for child readiness */ }
   }

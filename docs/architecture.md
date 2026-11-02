@@ -60,9 +60,11 @@ Every extension is a small object. The full field lists are in the [framework re
 | System 2 | `judge(input)` → `{verdict}` in routed mode; `think(input)` → `{candidateId?, directive?}` in async mode | [Routers and brains](extending/systems.md) |
 | Robot driver | `describe`, `reset`, `observe`, `step(action, {execute})`, `stop`, `close` (JavaScript or Python) | [Real robots](extending/robots.md) |
 | Program backend | JSON-lines: `catalog`, `reset`, `run_program` / `program_chunk`, `observe`, `score`, `close` | [Program backends](extending/program-backends.md) |
+| Policy server | `rea serve`, for platforms that run their own loop: JSON-lines `configure`, `reset`, `step`, `end`, `close`; Python client and XPolicyLab adapter | [Policy server](extending/policy-server.md) |
 
 Extensions are registered on a `createRegistry()` instance or loaded from a configuration with `type: "module"`; no file
-in `src/` needs to change.
+in `src/` needs to change. A platform that runs its own control loop calls REA instead: `rea serve` runs any of the
+runtimes above on a bridge environment whose observations come from the platform.
 
 ## Repository layout
 
@@ -79,6 +81,7 @@ scripts/            the `rea` CLI, Python backends (LIBERO, LIBERO programs, ASP
 eval/               benchmark integrations: BEHAVIOR runner and online agent, RoboTwin VLA/code runner,
                     G1 service evaluation utilities
 tools/              route-table builder, program-bundle builder, self-hosted judge server
+integrations/       clients and adapters for platforms that call REA as a policy: Python client, XPolicyLab (RoboDojo)
 agent-vla-async/    the G1 cerebellum (Python): VLA/controller runtime behind the `cerebellum` actuator
 examples/           runnable configurations, offline demos and robot configuration templates
 test/               Node and Python tests; everything runs offline

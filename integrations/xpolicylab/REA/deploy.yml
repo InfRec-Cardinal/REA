@@ -1,0 +1,23 @@
+policy_name: REA
+protocol: ws
+host: localhost
+port: null
+bench_name: null
+task_name: null
+ckpt_name: null
+env_cfg_type: null
+seed: null
+action_type: null
+gpu_id: null
+eval_batch: false
+
+# REA
+rea_root: null            # a REA checkout (default: $REA_ROOT)
+rea_config: null          # the REA configuration to serve: a policy or systems; relative to rea_root or absolute
+rea_output: null          # optional directory for REA's per-episode traces (one subdirectory per environment index)
+node: null                # Node.js 22.19+ (default: $REA_NODE, then node on PATH)
+max_chunk: 50             # the most commands REA may return per get_action
+cameras: null             # colour cameras to send to REA, e.g. [head_camera, left_camera]; default: all
+jpeg_quality: 90
+step_timeout_s: 600       # seconds to wait for one REA decision
+robot_action_dim_info: null   # e.g. {arm_dim: [6, 6], ee_dim: [1, 1]}; default: read from env_cfg_type

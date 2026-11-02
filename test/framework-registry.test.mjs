@@ -25,9 +25,10 @@ function workerFixture() {
 }
 
 test("registry discovers built-in adapters without starting their runtimes", async () => {
-  assert.deepEqual(listEnvironments().map(item => item.type), ["demo", "g1", "libero", "arc-agi3", "gymnasium", "aloha", "lerobot", "openral", "rpent", "robot", "python-robot", "module"]);
+  assert.deepEqual(listEnvironments().map(item => item.type), ["demo", "g1", "libero", "arc-agi3", "gymnasium", "aloha", "lerobot", "openral", "rpent", "robot", "python-robot", "module", "bridge"]);
   assert.deepEqual(listPolicies().map(item => item.type), ["demo", "scripted", "chat", "routed", "progress", "module", "lingbot-vla", "pi05", "aloha-code"]);
   for (const { type } of listEnvironments()) {
+    if (type === "bridge") continue;
     const environment = await createEnvironment({ type, options: { python: "/not/an/interpreter" } });
     if (type === "arc-agi3") assert.equal(await environment.scorecard({ close: true }), null);
     await environment.close();

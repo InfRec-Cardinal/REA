@@ -1,6 +1,6 @@
 {
   "name": "rea-agent",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Routed Embodied Agent (REA): a framework for routing among VLA, code-as-policy, LLM agent and controller policies on robots and benchmarks.",
   "private": true,
   "type": "module",

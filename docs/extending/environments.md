@@ -3,6 +3,9 @@
 An environment owns sensing, the available actions, units, control timing and the task outcome. Benchmarks,
 simulators and real robots are all environments; policies and routers never import a simulator.
 
+This page covers platforms that REA drives. If the platform runs its own loop and calls a policy (RoboDojo through
+XPolicyLab, a challenge evaluator), serve REA to it instead: see [the policy server](policy-server.md).
+
 ## Contract
 
 ```js
@@ -62,5 +65,6 @@ For routed episodes over capabilities that run inside the simulator, such as fro
 | RoboTwin 2.0 | VLA / code candidates with a trained success router; RPent services; OpenRAL scenes | [RoboTwin](../benchmarks/robotwin.md) |
 | ARC-AGI-3 | official SDK, offline and online scorecards | [ARC-AGI-3](../benchmarks/arc-agi3.md) |
 | Gymnasium | any registered environment, dynamic action spaces | [framework reference](../framework.md#gymnasium-and-additional-robots) |
+| RoboDojo (simulation and RealEval) | REA as an XPolicyLab policy (`rea serve`) | [RoboDojo](../benchmarks/robodojo.md) |
 
 Each guide states what the integration needs from upstream (simulators, assets, checkpoints) and what is not included.

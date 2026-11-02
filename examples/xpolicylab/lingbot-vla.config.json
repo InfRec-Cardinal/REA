@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "name": "xpolicylab-lingbot-vla",
+  "environment": { "type": "bridge" },
+  "policy": {
+    "type": "lingbot-vla",
+    "options": {
+      "url": { "env": "LINGBOT_VLA_URL", "default": "ws://127.0.0.1:8006" },
+      "imageMap": {
+        "observation.images.cam_high": "head_camera",
+        "observation.images.cam_left_wrist": "left_camera",
+        "observation.images.cam_right_wrist": "right_camera"
+      },
+      "stateMap": { "observation.state": "state.packed" },
+      "actionName": "packed_action_chunk",
+      "actionArgument": "commands",
+      "actionFormat": "chunk",
+      "chunkSteps": 8
+    }
+  }
+}

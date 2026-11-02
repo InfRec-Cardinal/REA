@@ -199,7 +199,10 @@ const builtinDescriptions = [
   description("robot", "A JavaScript driver implementing the common robot contract", "realtime", { runtime: "options.driver or context.driver" }),
   description("python-robot", "Your Python driver class (package.module:Class) behind the common robot contract", "realtime", { pythonEnv: "ROBOT_PYTHON", runtime: "options.driver importable by that Python" }),
   description("module", "An environment factory exported by a JavaScript module"),
+  description("bridge", "An environment driven by an external evaluator that calls REA as a policy (rea serve)", "turn-based", { runtime: "rea serve and an evaluator-side client" }),
 ];
+
+export const BRIDGE_DESCRIPTION = Object.freeze({ description: "An environment driven by an external evaluator that calls REA as a policy (rea serve)", timing: "turn-based", requires: { runtime: "rea serve and an evaluator-side client" } });
 
 function defined(values) { return Object.fromEntries(Object.entries(values).filter(([, value]) => value !== undefined)); }
 
@@ -287,6 +290,7 @@ export function createRegistry({ builtins = true } = {}) {
       },
       "python-robot": (options, context) => createPythonDriverEnvironment(adapterOptions(options, context, { python: (context.env ?? process.env).ROBOT_PYTHON })),
       module: (options, context) => moduleFactory("environment", options, context),
+      bridge: () => { throw new Error("The bridge environment is driven by an external evaluator; serve this configuration with rea serve <config>."); },
     };
     for (const metadata of builtinDescriptions) registry.registerEnvironment(metadata.type, factories[metadata.type], metadata);
     registry.registerPolicy("demo", demoPolicy, { description: "Solve the synthetic demo's visible target" });

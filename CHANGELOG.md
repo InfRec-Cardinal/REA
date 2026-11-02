@@ -1,5 +1,17 @@
 # Changelog
 
+REA is updated continuously; each release lists the platforms, robots and interfaces it adds.
+
+## 0.5.0
+
+- **Platforms that run their own loop.** `rea serve <config>` runs any REA configuration (one policy, async or routed
+  systems) as a policy for an external evaluator over JSON lines (`configure`, `reset`, `step`, `end`, `close`), on a
+  bridge environment (`createBridge`, `servePolicy`). Standard-library Python client: `integrations/python/rea_client.py`.
+- **RoboDojo.** `integrations/xpolicylab/REA`: REA as an XPolicyLab policy, for RoboDojo simulation and RealEval (ARX X5,
+  Piper, Piper X) and the other XPolicyLab environments. New: tested offline; validation on RoboDojo is in progress.
+- Example served configurations: `examples/xpolicylab/` (chat agent, LingBot-VLA client).
+- README: project page, paper and Hugging Face links, a platform table with status, and a citation.
+
 ## 0.4.0: first public release
 
 - **Routed systems.** `runRoutedEpisode` and `systems.mode: "routed"`: route memory (`route-memory`, `buildRouteTable`,

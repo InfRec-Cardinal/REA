@@ -29,6 +29,8 @@ other projects; their own licenses apply to them.
 | [OpenRAL](https://github.com/OpenRAL/openral), [RPent](https://github.com/RLinf/RPent) | `scripts/robot_drivers/openral.py`, `scripts/robot_drivers/rpent.py` | Apache-2.0 |
 | [LingBot-VLA](https://github.com/Robbyant/lingbot-vla-v2), [openpi](https://github.com/Physical-Intelligence/openpi) | VLA servers behind the `lingbot-vla` and `pi05` policies | Apache-2.0 |
 | [unitree_sdk2_python](https://github.com/unitreerobotics/unitree_sdk2_python) | G1 robot-side workers and the cerebellum | BSD-3-Clause |
+| [RoboDojo](https://github.com/RoboDojo-Benchmark/RoboDojo) | evaluated through XPolicyLab with `integrations/xpolicylab/REA` | MIT |
+| [XPolicyLab](https://github.com/XPolicyLab/XPolicyLab) | `integrations/xpolicylab/REA/model.py` implements its `Model` contract; `install.sh` copies XPolicyLab's own launch scripts from the user's checkout at install time (not redistributed here) | Apache-2.0 |
 | [Prime Agent](https://github.com/PrimeIntellect-ai/prime-agent) 0.8.0 | Optional G1 engine; `scripts/setup-prime.sh` installs the official release | no SPDX license is declared on its repository; review its terms before use |
 | [undici](https://github.com/nodejs/undici) | Optional keep-alive dispatcher | MIT |
 | Qwen-VL and Qwen3.5 model weights | `tools/judge/qwen_judge_server.py`, the RoboTwin success router | the model license of the weights you download |

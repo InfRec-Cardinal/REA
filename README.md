@@ -1,6 +1,12 @@
 # REA: Routed Embodied Agent
 
+🌐 [Project Page](https://mikeeeeeeeeeeeeee.github.io/REA) · 📄 [Paper](https://arxiv.org/abs/2610.42053) · 🤗 [HF Paper](https://huggingface.co/papers/2610.42053)
+
 [![ci](https://github.com/InfRec-Cardinal/REA/actions/workflows/ci.yml/badge.svg)](https://github.com/InfRec-Cardinal/REA/actions/workflows/ci.yml)
+
+> 🚧 **Continuously updated.** REA is under active development. Support for more benchmark platforms (such as
+> [RoboDojo](docs/benchmarks/robodojo.md)) and more real robots is added on an ongoing basis; see [Platforms](#platforms)
+> and the [changelog](CHANGELOG.md). Contributions of new platforms and robots are welcome.
 
 REA is a framework for embodied agents that route among fast policies instead of putting a large model in the control
 loop. It has three layers:
@@ -13,9 +19,11 @@ loop. It has three layers:
 - **System 2**, the brain: it writes or selects capabilities offline, and online it only judges or advises at
   boundaries. No running capability waits for it.
 
-The same interfaces connect benchmarks (LIBERO / LIBERO-Pro, BEHAVIOR-1K, RoboTwin, ARC-AGI-3, Gymnasium), real robots
-(ALOHA, LeRobot SO-100/101 and Koch, OpenRAL and RPent robots, Unitree G1, your own driver) and methods (LLM agents,
-VLAs, code-as-policy, controllers). Every episode records its decisions, actions, timing and usage in the same format.
+The same interfaces connect benchmark platforms (LIBERO / LIBERO-Pro, BEHAVIOR-1K, RoboTwin, RoboDojo, ARC-AGI-3,
+Gymnasium), real robots (ALOHA, LeRobot SO-100/101 and Koch, OpenRAL and RPent robots, Unitree G1, RoboDojo-RealEval's
+dual-arm robots, your own driver) and methods (LLM agents, VLAs, code-as-policy, controllers). REA can drive a platform's
+environment, or be called as a policy by a platform that runs its own loop. Every episode records its decisions, actions,
+timing and usage in the same format.
 
 ## Start in one minute
 
@@ -76,9 +84,10 @@ npm run rea -- run rea.config.json --steps 10 --output outputs/first-run
 | `rpent` | LIBERO, RoboCasa and RoboTwin environment services | [OpenRAL and RPent](docs/robots/openral-rpent.md) |
 | `g1` | Unitree G1 camera, safety gate and executor | [Unitree G1](docs/robots/unitree-g1.md) |
 
-BEHAVIOR-1K and RoboTwin have dedicated runners: [BEHAVIOR](docs/benchmarks/behavior.md),
-[RoboTwin](docs/benchmarks/robotwin.md). Hardware presets start in preview (`execute: false`); task success on hardware
-needs an evaluator, not a command acknowledgement.
+BEHAVIOR-1K, RoboTwin and RoboDojo have dedicated runners or adapters: [BEHAVIOR](docs/benchmarks/behavior.md),
+[RoboTwin](docs/benchmarks/robotwin.md), [RoboDojo](docs/benchmarks/robodojo.md); every platform is listed under
+[Platforms](#platforms). Hardware presets start in preview (`execute: false`); task success on hardware needs an
+evaluator, not a command acknowledgement.
 
 ## Routed and asynchronous systems
 
@@ -99,6 +108,32 @@ systems: {
 [routed systems](docs/routed-systems.md) and, for background thinking with per-action routing,
 [asynchronous systems](docs/async-systems.md).
 
+## Platforms
+
+New platforms and robots are added continuously; the [changelog](CHANGELOG.md) lists each addition. **Supported**: the
+adapter is included and tested against the platform's interface. **New**: the adapter is included and tested offline, and
+validation on the platform is in progress.
+
+| Benchmark platform | How REA connects | Status |
+|---|---|---|
+| [LIBERO / LIBERO-Pro](docs/benchmarks/libero.md) | `libero` environment; resumable frozen-program backend | Supported |
+| [BEHAVIOR-1K](docs/benchmarks/behavior.md) (R1Pro) | program backend; online-agent episode runner | Supported |
+| [RoboTwin 2.0](docs/benchmarks/robotwin.md) | VLA / code candidates with a success router; RPent and OpenRAL scenes | Supported |
+| [ARC-AGI-3](docs/benchmarks/arc-agi3.md) | official SDK, games and scorecards | Supported |
+| [Gymnasium](docs/framework.md#gymnasium-and-additional-robots) | any registered environment and its native action space | Supported |
+| [RoboDojo](docs/benchmarks/robodojo.md) (simulation and RealEval) | REA as an XPolicyLab policy through `rea serve` | New |
+| Other XPolicyLab platforms (RoboTwin, RMBench) | the same XPolicyLab adapter | New |
+| Your platform | an [environment](docs/extending/environments.md) (REA runs the loop) or [`rea serve`](docs/extending/policy-server.md) (the platform runs it) | |
+
+| Real robot | How REA connects | Status |
+|---|---|---|
+| ALOHA: ACT simulation, Classic ROS1 hardware | `aloha` | Supported |
+| LeRobot: SO-100/101, bimanual SO, Koch, Robot-compatible factories | `lerobot` | Supported |
+| OpenRAL robots: Franka, UR5e/UR10e, Sawyer, WidowX, OpenArm, humanoids and more | `openral` | Supported |
+| Unitree G1 (service, safety gate, cerebellum) | `g1` | Supported |
+| RoboDojo-RealEval: ARX X5, Piper, Piper X | the XPolicyLab adapter | New |
+| Your robot | a [Python driver class](docs/extending/robots.md) (`python-robot`), a JavaScript driver, or `rea serve` from your robot stack | |
+
 ## Plug in your own
 
 | To add | Implement | Guide |
@@ -108,6 +143,7 @@ systems: {
 | A benchmark or simulator | `reset`, `step` (and `score` for routed episodes) | [Environments](docs/extending/environments.md) |
 | A program-executing simulator | the JSON-lines program protocol | [Program backends](docs/extending/program-backends.md) |
 | A real robot | a Python driver class (`python-robot`) or a JavaScript driver | [Real robots](docs/extending/robots.md) |
+| A platform that runs its own loop (XPolicyLab / RoboDojo, challenge evaluators, robot stacks) | `rea serve` plus a small adapter; a Python client is included | [Policy server](docs/extending/policy-server.md) |
 
 Load any of them from a configuration with `type: "module"`, or register them on `createRegistry()`; nothing in `src/`
 needs to change.
@@ -131,9 +167,9 @@ try {
 - [Routed systems](docs/routed-systems.md) · [Asynchronous systems](docs/async-systems.md)
 - Extending: [policies](docs/extending/policies.md) · [routers and brains](docs/extending/systems.md) ·
   [environments](docs/extending/environments.md) · [program backends](docs/extending/program-backends.md) ·
-  [real robots](docs/extending/robots.md)
+  [real robots](docs/extending/robots.md) · [policy server](docs/extending/policy-server.md)
 - Benchmarks: [LIBERO](docs/benchmarks/libero.md) · [BEHAVIOR](docs/benchmarks/behavior.md) ·
-  [RoboTwin](docs/benchmarks/robotwin.md) · [ARC-AGI-3](docs/benchmarks/arc-agi3.md)
+  [RoboTwin](docs/benchmarks/robotwin.md) · [RoboDojo](docs/benchmarks/robodojo.md) · [ARC-AGI-3](docs/benchmarks/arc-agi3.md)
 - Robots: [ALOHA, LeRobot](docs/robots/README.md) · [ALOHA hardware](docs/robots/aloha-real.md) ·
   [OpenRAL and RPent](docs/robots/openral-rpent.md) · [Unitree G1](docs/robots/unitree-g1.md) ·
   [G1 cerebellum](agent-vla-async/README.md) · [LingBot-VLA](docs/policies/lingbot-vla.md)
@@ -144,6 +180,17 @@ try {
 Model weights, VLA servers, simulators and their assets (LIBERO, BEHAVIOR-1K / OmniGibson, RoboTwin), ASPIRE, datasets,
 robot calibration and recorded runs are installed separately; each guide says what an integration expects. Benchmark
 task prompts and API docstrings from third-party projects are not redistributed.
+
+## Citation
+
+```bibtex
+@article{zhou2026rea,
+  title   = {{REA}: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control},
+  author  = {Zhou, Pengfei and Ma, Yixing and Zhang, Zhengfeiyang and Chen, Haoyuan and Wan, Zhenglin and Wang, Hexin and Zhao, Wangbo and You, Yang},
+  journal = {arXiv preprint arXiv:2610.42053},
+  year    = {2026}
+}
+```
 
 ## License
 

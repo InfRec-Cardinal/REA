@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "name": "xpolicylab-chat",
+  "environment": { "type": "bridge" },
+  "policy": { "type": "chat", "options": { "mode": "tool", "maxOutputTokens": 4096 } },
+  "budget": { "decisionTimeoutMs": 180000 }
+}

@@ -7,6 +7,8 @@ export {
   rankCandidates, routeLadder, routeTableSha256, taskKey, verifyRouteTable,
 } from "./route-memory.mjs";
 export { createVlmJudge } from "./judge-gate.mjs";
+export { createBridge } from "./bridge.mjs";
+export { servePolicy } from "./policy-server.mjs";
 export { createAsyncSession } from "./async-session.mjs";
 export { createChatThinker, createConfiguredSystems } from "./systems.mjs";
 export { createChatPolicy } from "./policy.mjs";

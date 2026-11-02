@@ -33,6 +33,7 @@ Usage:
   rea init <preset> [--output rea.config.json]
   rea run <preset|config.json|config.mjs> [options]
   rea doctor <preset|config.json> [--python executable]
+  rea serve <config.json|config.mjs> [--output directory]
 
 Inside the repository, use npm run rea -- <command> with the same arguments.
 
@@ -47,6 +48,10 @@ Run options:
   --python <executable>    Override the environment's Python interpreter
   --events                Print live System0/1/2 events for systems configurations
   -h, --help              Show this help
+
+serve runs the configured policy or systems for an external evaluator that owns the control loop
+(RoboDojo / XPolicyLab, other benchmark harnesses, robot stacks): JSON lines on stdin and stdout,
+see docs/extending/policy-server.md.
 
 Examples:
   rea run demo --output outputs/demo
@@ -75,6 +80,7 @@ const COMMAND_OPTIONS = {
   init: ["output"],
   run: Object.keys(OPTIONS),
   doctor: ["python"],
+  serve: ["output"],
 };
 
 export function parseCommand(argv) {
@@ -150,7 +156,7 @@ export function applyOverrides(config, values) {
 
 // Importing this module never loads .env, starts a backend or runs a command.
 export async function main(argv = process.argv.slice(2), {
-  cwd = process.cwd(), env = process.env, stdout = process.stdout, stderr = process.stderr,
+  cwd = process.cwd(), env = process.env, stdin = process.stdin, stdout = process.stdout, stderr = process.stderr,
   framework, signals = process,
 } = {}) {
   try {
@@ -189,6 +195,21 @@ export async function main(argv = process.argv.slice(2), {
     if (command === "doctor" && [".mjs", ".js", ".cjs"].includes(extname(input))) throw new Error("doctor cannot statically inspect JavaScript configurations. Use a JSON recipe; this file was not loaded.");
     const loaded = await api.loadConfiguration(input, { cwd, env });
     const config = applyOverrides(loaded.config, values);
+    if (command === "serve") {
+      // stdout carries only protocol lines; anything a policy prints goes to stderr.
+      const log = console.log;
+      console.log = (...args) => console.error(...args);
+      const stop = () => stdin.destroy?.();
+      signals.once("SIGTERM", stop);
+      try {
+        await api.servePolicy({ config, baseDir: loaded.baseDir, env, input: stdin, output: stdout,
+          outputDir: values.output !== undefined ? resolve(cwd, values.output) : null });
+        return 0;
+      } finally {
+        signals.removeListener("SIGTERM", stop);
+        console.log = log;
+      }
+    }
     if (command === "doctor") {
       const report = await api.inspectConfiguration(config, { baseDir: loaded.baseDir, env });
       for (const check of report.checks) stdout.write(`[${check.status}] ${check.name}: ${check.message}\n`);

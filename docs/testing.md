@@ -10,6 +10,9 @@ npm run test:async                                         # async and routed ru
 npm run test:aloha                                         # ALOHA, pi0.5 and LingBot-VLA clients
 ```
 
+`test/policy-server.test.mjs` and `test/test_xpolicylab_adapter.py` run `rea serve` with a scripted policy and drive it
+the way XPolicyLab's evaluation loop does; they need Node on `PATH`.
+
 Some Python tests skip themselves when optional packages are missing (NumPy, Pillow, MessagePack, websockets for the VLA
 clients: `pip install -r requirements-pi05.txt -r requirements-lingbot-vla.txt`; `openai-agents` for the BEHAVIOR Agents
 SDK child, selected with `BEHAVIOR_SDK_PYTHON`).

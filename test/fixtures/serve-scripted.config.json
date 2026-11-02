@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "name": "serve-scripted",
+  "environment": {
+    "type": "bridge"
+  },
+  "policy": {
+    "type": "scripted",
+    "options": {
+      "actions": [
+        {
+          "name": "packed_action_chunk",
+          "arguments": {
+            "commands": [
+              [
+                0.0,
+                0.01,
+                0.02,
+                0.03,
+                0.04,
+                0.05,
+                0.06,
+                0.07,
+                0.08,
+                0.09,
+                0.1,
+                0.11,
+                0.12,
+                0.13
+              ]
+            ]
+          }
+        },
+        {
+          "name": "action_chunk",
+          "arguments": {
+            "commands": [
+              {
+                "left_arm_joint_state": [
+                  0.1,
+                  0.1,
+                  0.1,
+                  0.1,
+                  0.1,
+                  0.1
+                ],
+                "left_ee_joint_state": [
+                  0.5
+                ],
+                "right_arm_joint_state": [
+                  -0.1,
+                  -0.1,
+                  -0.1,
+                  -0.1,
+                  -0.1,
+                  -0.1
+                ],
+                "right_ee_joint_state": [
+                  0.4
+                ]
+              },
+              {
+                "left_arm_joint_state": [
+                  0.1,
+                  0.1,
+                  0.1,
+                  0.1,
+                  0.1,
+                  0.1
+                ],
+                "left_ee_joint_state": [
+                  0.5
+                ],
+                "right_arm_joint_state": [
+                  -0.1,
+                  -0.1,
+                  -0.1,
+                  -0.1,
+                  -0.1,
+                  -0.1
+                ],
+                "right_ee_joint_state": [
+                  0.4
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "budget": {
+    "maxSteps": 2
+  }
+}

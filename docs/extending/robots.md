@@ -13,8 +13,12 @@ Every policy, router and runtime works unchanged on top.
 | OpenRAL manifests: Franka Panda, UR5e/UR10e, Sawyer, WidowX, Flexiv Rizon 4, SO-100/101, ALOHA, OpenArm, Galaxea A1 and R1Pro, Unitree G1/H1, Fourier GR1 and more | `openral` | [OpenRAL and RPent](../robots/openral-rpent.md) |
 | RPent LIBERO, RoboCasa and RoboTwin services | `rpent` | [OpenRAL and RPent](../robots/openral-rpent.md) |
 | Unitree G1 (service, safety gate, cerebellum) | `g1` | [Unitree G1](../robots/unitree-g1.md), [cerebellum](../../agent-vla-async/README.md) |
+| RoboDojo-RealEval: ARX X5, Piper, Piper X | XPolicyLab adapter (`rea serve`) | [RoboDojo](../benchmarks/robodojo.md) |
 | Your Python driver class | `python-robot` | below |
 | Your JavaScript driver | `robot` | below |
+
+If your robot stack already runs its own control loop and calls a policy, serve REA to it with
+[`rea serve`](policy-server.md) instead of writing a driver.
 
 ## Safety model
 
