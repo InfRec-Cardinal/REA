@@ -27,6 +27,7 @@ all welcome.
 - No secrets, private hosts, personal paths or recorded run artifacts in the repository; use placeholders and
   environment variables (`REA_*`, `<ADAPTER>_PYTHON`, `<ADAPTER>_ROOT`). CI rejects private addresses and paths.
 - Hardware adapters start in preview (`execute: false`) and implement `stop()`.
+- The README is bilingual: when you change `README.md`, make the same change in `README.zh-CN.md` (and the reverse).
 - Success is reported only by an environment's evaluator, never inferred from a command acknowledgement.
 - Benchmark protocols: build route tables and tune judges on development episodes; evaluate on different episodes.
 

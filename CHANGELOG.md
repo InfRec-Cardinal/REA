@@ -10,7 +10,8 @@ REA is updated continuously; each release lists the platforms, robots and interf
 - **RoboDojo.** `integrations/xpolicylab/REA`: REA as an XPolicyLab policy, for RoboDojo simulation and RealEval (ARX X5,
   Piper, Piper X) and the other XPolicyLab environments. New: tested offline; validation on RoboDojo is in progress.
 - Example served configurations: `examples/xpolicylab/` (chat agent, LingBot-VLA client).
-- README: project page, paper and Hugging Face links, a platform table with status, and a citation.
+- README in English and Simplified Chinese (`README.zh-CN.md`), with badges for the paper, arXiv, Hugging Face, GitHub,
+  the project page, the citation and CI, a platform table with status, and a citation.
 
 ## 0.4.0: first public release
 

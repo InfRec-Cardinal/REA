@@ -1,8 +1,22 @@
-# REA: Routed Embodied Agent
+<h1 align="center">REA</h1>
 
-🌐 [Project Page](https://mikeeeeeeeeeeeeee.github.io/REA) · 📄 [Paper](https://arxiv.org/abs/2610.42053) · 🤗 [HF Paper](https://huggingface.co/papers/2610.42053)
+<p align="center">
+  <strong>A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control</strong>
+</p>
 
-[![ci](https://github.com/InfRec-Cardinal/REA/actions/workflows/ci.yml/badge.svg)](https://github.com/InfRec-Cardinal/REA/actions/workflows/ci.yml)
+<p align="center">
+  <a href="https://arxiv.org/pdf/2610.42053"><img src="https://img.shields.io/badge/Paper-PDF-B31B1B?style=flat-square" alt="Paper PDF"></a>
+  <a href="https://arxiv.org/abs/2610.42053"><img src="https://img.shields.io/badge/arXiv-2610.42053-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv 2610.42053"></a>
+  <a href="https://huggingface.co/papers/2610.42053"><img src="https://img.shields.io/badge/Hugging%20Face-Paper-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=white" alt="Hugging Face Paper"></a>
+  <a href="https://github.com/InfRec-Cardinal/REA"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a>
+  <a href="https://mikeeeeeeeeeeeeee.github.io/REA"><img src="https://img.shields.io/badge/Project%20Page-2088A2?style=flat-square&amp;logo=googlechrome&amp;logoColor=white" alt="Project Page"></a>
+  <a href="#citation"><img src="https://img.shields.io/badge/Citation-BibTeX-7042C1?style=flat-square&amp;logo=bookstack&amp;logoColor=white" alt="Citation BibTeX"></a>
+  <a href="https://github.com/InfRec-Cardinal/REA/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/InfRec-Cardinal/REA/ci.yml?branch=main&amp;style=flat-square&amp;logo=githubactions&amp;logoColor=white&amp;label=CI" alt="CI"></a>
+</p>
+
+<p align="center">
+  <strong>English</strong> · <a href="README.zh-CN.md">简体中文</a>
+</p>
 
 > 🚧 **Continuously updated.** REA is under active development. Support for more benchmark platforms (such as
 > [RoboDojo](docs/benchmarks/robodojo.md)) and more real robots is added on an ongoing basis; see [Platforms](#platforms)
